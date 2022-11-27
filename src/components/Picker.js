@@ -13,7 +13,7 @@ export default function PickerComponent() {
 
   return (
     <View style={{ flexDirection: 'row' }}>
-      <Text style={{ color: '#fff' }}>Min:</Text>
+      <Text style={{ color: '#fff', padding: 16 }}>Min:</Text>
       <Picker
         style={{ color: '#fff', height: 50, width: 100 }}
         selectedValue={minutes}
@@ -24,7 +24,7 @@ export default function PickerComponent() {
         })}
       </Picker>
 
-      <Text style={{ color: '#fff' }}>Sec:</Text>
+      <Text style={{ color: '#fff', padding: 16 }}>Sec:</Text>
       <Picker
         style={{ color: '#fff', height: 50, width: 100 }}
         selectedValue={seconds}

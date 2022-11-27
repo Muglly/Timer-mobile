@@ -1,26 +1,21 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import PickerComponent from '../components/Picker';
+import ButtonAlarm from '../components/ButtonAlarm';
 
 export function Home() {
-  const [alarmSound, setAlarmSound] = useState([
-    {
-      selected: true,
-      sound: 'alarm 1',
-      file: 'alarm1.mp3',
-    },
-    {
-      selected: false,
-      sound: 'alarm e',
-      file: 'alarm2.mp3',
-    },
-  ]);
-
   return (
     <View style={styles.container}>
+      <LinearGradient
+        // Background Linear Gradient
+        colors={['rgba(15, 12, 41,0.8)', 'rgba(15, 12, 41, 0.3)']}
+        style={styles.background}
+      />
       <Text style={{ color: '#fff', fontSize: 30 }}>Selecr your time:</Text>
       <PickerComponent />
+      <ButtonAlarm />
     </View>
   );
 }
@@ -28,8 +23,14 @@ export function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0f0c29',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  background: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    height: '100%',
   },
 });
