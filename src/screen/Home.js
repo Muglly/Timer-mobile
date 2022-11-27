@@ -4,8 +4,6 @@ import { StyleSheet, Text, View } from 'react-native';
 import PickerComponent from '../components/Picker';
 
 export function Home() {
-  const [seconds, setSeconds] = useState(0);
-  const [minutes, setMinutes] = useState(0);
   const [alarmSound, setAlarmSound] = useState([
     {
       selected: true,

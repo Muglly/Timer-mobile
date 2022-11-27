@@ -1,8 +1,11 @@
-import React from 'react';
+import { useState } from 'react';
 import { Picker } from '@react-native-picker/picker';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 
 export default function PickerComponent() {
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
+
   let number = [];
   for (let i = 0; i <= 60; i++) {
     number.push(i);
@@ -10,13 +13,23 @@ export default function PickerComponent() {
 
   return (
     <View style={{ flexDirection: 'row' }}>
-      <Picker style={{ color: '#fff', height: 50, width: 100 }}>
+      <Text style={{ color: '#fff' }}>Min:</Text>
+      <Picker
+        style={{ color: '#fff', height: 50, width: 100 }}
+        selectedValue={minutes}
+        onValueChange={(itemValue, itemIndex) => setMinutes(itemValue)}
+      >
         {number.map((val) => {
           return <Picker.Item label={val.toString()} value={val.toString()} />;
         })}
       </Picker>
 
-      <Picker style={{ color: '#fff', height: 50, width: 100 }}>
+      <Text style={{ color: '#fff' }}>Sec:</Text>
+      <Picker
+        style={{ color: '#fff', height: 50, width: 100 }}
+        selectedValue={seconds}
+        onValueChange={(itemValue, itemIndex) => setSeconds(itemValue)}
+      >
         {number.map((val) => {
           return <Picker.Item label={val.toString()} value={val.toString()} />;
         })}
