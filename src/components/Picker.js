@@ -20,7 +20,7 @@ export default function PickerComponent() {
         onValueChange={(itemValue, itemIndex) => setMinutes(itemValue)}
       >
         {number.map((val) => {
-          return <Picker.Item label={val.toString()} value={val.toString()} />;
+          return <Picker.Item label={val.toString()} value={val.toString()} key={val.toString()} />;
         })}
       </Picker>
 
