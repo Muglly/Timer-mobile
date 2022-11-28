@@ -2,10 +2,7 @@ import { useState } from 'react';
 import { Picker } from '@react-native-picker/picker';
 import { Text, View } from 'react-native';
 
-export default function PickerComponent() {
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
-
+export default function PickerComponent({ minutes, setMinutes, seconds, setSeconds }) {
   let number = [];
   for (let i = 0; i <= 60; i++) {
     number.push(i);
