@@ -5,7 +5,7 @@ export default function ButtonAlarm() {
   const [alarmSound, setAlarmSound] = useState([
     {
       id: 1,
-      selected: true,
+      selected: false,
       sound: 'alarm 1',
       file: 'alarm1.mp3',
     },

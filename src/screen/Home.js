@@ -1,23 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import PickerComponent from '../components/Picker';
 import ButtonAlarm from '../components/ButtonAlarm';
+import ButtonStart from '../components/ButtonStart';
 
 export function Home() {
-  return (
-    <View style={styles.container}>
-      <LinearGradient
-        // Background Linear Gradient
-        colors={['rgba(15, 12, 41,0.8)', 'rgba(15, 12, 41, 0.3)']}
-        style={styles.background}
-      />
-      <Text style={{ color: '#fff', fontSize: 30 }}>Selecr your time:</Text>
-      <PickerComponent />
-      <ButtonAlarm />
-    </View>
-  );
+  const [start, setStart] = useState(false);
+
+  if (start == false) {
+    return (
+      <View style={styles.container}>
+        <LinearGradient
+          // Background Linear Gradient
+          colors={['rgba(15, 12, 41,0.8)', 'rgba(15, 12, 41, 0.3)']}
+          style={styles.background}
+        />
+        <Text style={{ color: '#fff', fontSize: 30 }}>Selecr your time:</Text>
+        <PickerComponent />
+        <ButtonAlarm />
+        <ButtonStart setStart={setStart} />
+      </View>
+    );
+  } else if (start == true) {
+    return (
+      <View>
+        <Text>Started</Text>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
