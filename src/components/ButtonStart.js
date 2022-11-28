@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function ButtonStart({ setStart }) {
   return (
-    <View>
+    <View style={{ position: 'absolute', bottom: '20%' }}>
       <TouchableOpacity style={styles.btnStart} onPress={() => setStart(true)}>
         <Text style={styles.textStart}>START</Text>
       </TouchableOpacity>
