@@ -28,7 +28,15 @@ export function Home() {
       </View>
     );
   } else if (start == true) {
-    return <Counter minutes={minutes} seconds={seconds} setStart={setStart} />;
+    return (
+      <Counter
+        minutes={minutes}
+        setMinutes={setMinutes}
+        seconds={seconds}
+        setSeconds={setSeconds}
+        setStart={setStart}
+      />
+    );
   }
 }
 
