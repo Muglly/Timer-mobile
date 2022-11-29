@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Picker } from '@react-native-picker/picker';
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 
 export default function PickerComponent({ minutes, setMinutes, seconds, setSeconds }) {
   let number = [];
@@ -10,27 +10,52 @@ export default function PickerComponent({ minutes, setMinutes, seconds, setSecon
 
   return (
     <View style={{ flexDirection: 'row' }}>
-      <Text style={{ color: '#fff', padding: 16 }}>Min:</Text>
-      <Picker
-        style={{ color: '#fff', height: 50, width: 100 }}
-        selectedValue={minutes}
-        onValueChange={(itemValue, itemIndex) => setMinutes(itemValue)}
-      >
-        {number.map((val) => {
-          return <Picker.Item label={val.toString()} value={val.toString()} key={val.toString()} />;
-        })}
-      </Picker>
+      <View style={styles.containerPicker}>
+        <Text style={styles.textPicker}>Min:</Text>
+        <Picker
+          style={styles.picker}
+          selectedValue={minutes}
+          onValueChange={(itemValue, itemIndex) => setMinutes(itemValue)}
+        >
+          {number.map((val) => {
+            return (
+              <Picker.Item label={val.toString()} value={val.toString()} key={val.toString()} />
+            );
+          })}
+        </Picker>
+      </View>
 
-      <Text style={{ color: '#fff', padding: 16 }}>Sec:</Text>
-      <Picker
-        style={{ color: '#fff', height: 50, width: 100 }}
-        selectedValue={seconds}
-        onValueChange={(itemValue, itemIndex) => setSeconds(itemValue)}
-      >
-        {number.map((val) => {
-          return <Picker.Item label={val.toString()} value={val.toString()} />;
-        })}
-      </Picker>
+      <View style={styles.containerPicker}>
+        <Text style={styles.textPicker}>Sec:</Text>
+        <Picker
+          style={styles.picker}
+          selectedValue={seconds}
+          onValueChange={(itemValue, itemIndex) => setSeconds(itemValue)}
+        >
+          {number.map((val) => {
+            return <Picker.Item label={val.toString()} value={val.toString()} />;
+          })}
+        </Picker>
+      </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  containerPicker: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  textPicker: {
+    color: '#fff',
+    padding: 16,
+    fontSize: 18,
+  },
+  picker: {
+    color: '#fff',
+    height: 50,
+    width: 100,
+    fontSize: 18,
+  },
+});

@@ -16,7 +16,7 @@ export function Home() {
     return (
       <View style={styles.container}>
         <Gradient />
-        <Text style={{ color: '#fff', fontSize: 30 }}>Selecr your time:</Text>
+        <Text style={{ color: '#fff', fontSize: 30, marginTop: '20%' }}>Selecr your time:</Text>
         <PickerComponent
           minutes={minutes}
           setMinutes={setMinutes}
@@ -36,6 +36,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
   },
 });

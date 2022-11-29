@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   },
   timer: {
     color: '#fff',
-    fontSize: 50,
+    fontSize: 100,
   },
   btnStop: {
     width: 100,
