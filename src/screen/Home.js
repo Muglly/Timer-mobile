@@ -12,6 +12,21 @@ export function Home() {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
+  const [alarmSound, setAlarmSound] = useState([
+    {
+      id: 1,
+      selected: false,
+      sound: 'alarm 1',
+      file: require('../../assets/alarme1.mp3'),
+    },
+    {
+      id: 2,
+      selected: false,
+      sound: 'alarm 2',
+      file: require('../../assets/alarme2.mp3'),
+    },
+  ]);
+
   if (start == false) {
     return (
       <View style={styles.container}>
@@ -23,7 +38,7 @@ export function Home() {
           seconds={seconds}
           setSeconds={setSeconds}
         />
-        <ButtonAlarm />
+        <ButtonAlarm alarmSound={alarmSound} setAlarmSound={setAlarmSound} />
         <ButtonStart setStart={setStart} />
       </View>
     );
@@ -35,6 +50,7 @@ export function Home() {
         seconds={seconds}
         setSeconds={setSeconds}
         setStart={setStart}
+        alarmSound={alarmSound}
       />
     );
   }

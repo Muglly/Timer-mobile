@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Audio } from 'expo-av';
 
 import { Gradient } from '../components/Gradient';
 
-export function Counter({ minutes, setMinutes, seconds, setSeconds, setStart }) {
+export function Counter({ minutes, setMinutes, seconds, setSeconds, setStart, alarmSound }) {
   const [done, setDone] = useState(false);
 
   useEffect(() => {
@@ -20,6 +21,7 @@ export function Counter({ minutes, setMinutes, seconds, setSeconds, setStart }) 
             setStart(false);
             setMinutes(0);
             setSeconds(0);
+            playAlarm();
           }
         }
       }
@@ -27,6 +29,25 @@ export function Counter({ minutes, setMinutes, seconds, setSeconds, setStart }) 
 
     return () => clearInterval(timer);
   });
+
+  const playAlarm = async () => {
+    const playSound = new Audio.Sound();
+
+    try {
+      let soundFile;
+      alarmSound.map((alarm) => {
+        if (alarm.selected) {
+          soundFile = alarm.file;
+        }
+      });
+
+      await playSound.loadAsync(soundFile);
+      await playSound.playAsync();
+    } catch (error) {
+      console.log('playAlarme error ', error);
+      console.log(soundFile);
+    }
+  };
 
   const reset = () => {
     setStart(false);

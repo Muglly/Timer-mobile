@@ -1,22 +1,7 @@
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 
-export default function ButtonAlarm() {
-  const [alarmSound, setAlarmSound] = useState([
-    {
-      id: 1,
-      selected: false,
-      sound: 'alarm 1',
-      file: 'alarm1.mp3',
-    },
-    {
-      id: 2,
-      selected: false,
-      sound: 'alarm 2',
-      file: 'alarm2.mp3',
-    },
-  ]);
-
+export default function ButtonAlarm({ alarmSound, setAlarmSound }) {
   const setAlarm = (id) => {
     let alarmTamp = alarmSound.map((alarm) => {
       if (id != alarm.id) alarm.selected = false;
